@@ -210,8 +210,44 @@ else:
     pass #ignores this line 
 ```
 ###### Note that to assess whether two items are equal, we use a **double** equal sign '==' 
-In this example there are the 3 key-words for if-then statements. First, there is the intitial 'if' which is evaluated. This statement ends with a colon. All lines indented below this line will be executed when the if statement is True. Following the 'if' statement is an else if statement indicated by the Python key-word 'elif'. 
+In this example there are the 3 key-words for if-then statements. First, there is the intitial 'if' which is evaluated. This statement ends with a colon. All lines indented below this line will be executed when the if statement is True. 
+Following the 'if' statement is an else if statement indicated by the Python key-word 'elif'. This statement is **only** checked when the prior 'if' statement is false. Depending on the complexity of the if-then statements and how many items have to be assessed, elif can increase efficiency rather than just have all if statements.
+The last part of the if-then grouping is an 'else' statement. This statement only occurs if all the previous statements are evaluated to be False. Note that in our example, we use a Python key-word 'pass'. This indicates that Python should just skip or pass over this if-then statement if evaluated to be True. 
 
 ### Functions
+Users can define functions for themselves. This makes a calculation easier to repeat for a number of variables. Let's take a sample user-defined function to calculate the Risk Ratio
+```python
+def risk_ratio(a,b,c,d):
+    '''This function calculates the Risk Ratio. The inputs are 
+    the numbers from a 2x2 table'''
+    rr = (a/(a+b)) / (c/(c+d))
+    print('The risk ratio is:')
+    print(rr)
+
+
+```
+The first line 
+
 
 ### Altogether
+
+## Python Packages Introduction
+Now, it would be a lot of effort to write functions to do everything. For example, with the prior function, it doesn't calculate the variance, so we don't have confidence intervals. Now, we could write calculations into the function but this will quickly become tedious and exceedingly complicated for some functions. Luckily, there is a plethora of packages available that do a wide variety of calculations. We will now use a package I have been writing to help us with some calculations
+###### Note: Packages need to be installed with 'pip' or some package manager before they can be used. Please see the introduction page for how to install packages with pip. 
+Once we have the package installed with pip, we can open with 
+```python
+import zepid as ze 
+```
+Note that we use the 'as' statement. This allows us to shorten to name we use to call the package and the functions contained within it. Instead of writing 'zepid' each time we want to use a package function, we can now only write 'ze'
+Now we can use the summary calculation function available in zepid to calculate our risk ratio and corresponding confidence intervals. First we call the package up by the abbreviated name, followed by a period. Following the period, we use the following items to specify the specific function we want to use 'RelRisk', which is contained in the 'summary' class
+```python
+ze.summary.RelRisk()
+```
+Which should output
+```
+
+```
+There is a large variety of freely available packages. In the next sections, we will discuss some of the most common packages used for data management and data analysis. Additionally, most packages have extensive online documentation detailing all the functions available
+
+# Summary
+So in this part of the tutorial we have went over some of the basic functionality of Python. This section is just meant to be an introduction to the very basics of Python. There is a lot more to learn, but this serves as a good introduction to the elements important for data analysis. In the next sections, we will cover more of data analysis specifics
