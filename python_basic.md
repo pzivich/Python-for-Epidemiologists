@@ -59,7 +59,7 @@ The above print() statement should produce the following output
 ```
 <class 'str'>
 ```
-##### NOTE: this is only a super brief outline on string objects. There is a lot more about how Python interacts and uses string objects. Similar this guide is primarily on data analysis (excluding text analysis), we will not discuss strings much further. For more information regarding string objects in Python, visit https://docs.python.org/3/library/stdtypes.html#str
+###### NOTE: this is only a super brief outline on string objects. There is a lot more about how Python interacts and uses string objects. Similar this guide is primarily on data analysis (excluding text analysis), we will not discuss strings much further. For more information regarding string objects in Python, visit https://docs.python.org/3/library/stdtypes.html#str
 
 ### Basic Container Types
 Now that we have our basic data object types, let's store multiple objects together (in containers). There are multiple types of containers in Python. We will go over a few basic built-in ones here.
@@ -126,8 +126,8 @@ We can access the dictionary keys and values by using the following statements, 
 print(d.keys())
 print(d.values())
 ```
-##### Note: Python 3.x refers to dictionary items in a different way when compared to Python 2.x
-##### Note: that values can be any type of basic object, or even container objects
+###### Note: Python 3.x refers to dictionary items in a different way when compared to Python 2.x
+###### Note: that values can be any type of basic object, or even container objects
 
 From these humble objects, we can build a variety of things. For example, we could create a list of dictionaries that has values of sets of tuples
 
@@ -159,9 +159,59 @@ Note that this is just a basic showcase of some common mathematical functions in
 ## String Functions
 I know I said we were mostly skipping over string objects, but I just wanted to mention a few items about them here
 ### Special String Sequences
+There are special "escape" characters that Python uses to do different text editing functions. We will talk about two of them here. First there is tab (designated by \t) and enter/new line (designated \n). This allows tabs and new lines to be created when printing strings. We can see what happens when we run the following line
+```python
+print('\tHello'+'\nworld!')
+```
 ### Mathematical Functions on strings
+We can also perform some basic mathematical functions on strings, using the symbols from earlier. First we can 'add' or concatenate string objects together using the plus sign. Note that this only works when all objects are string objects
+```python
+print('Nine'+' = '+str(9)) #add to a string
+```
+We can also use multiplication to repeat a string multiple times
+```python
+print('repeat '*5)
+```
+Again, these are just the bare minimum regarding string functionality. If you want to learn more, I suggest looking at the online documentation for Python or looking through StackOverflow
 
 ## Loops, if-then, functions
-Now that we have some basics, let's build on what we have learned. First we will discuss for loops. For loops is a process that is repeated until the end of an object is reached. Let's look at the following example
+Now that we have some basics, let's build on what we have learned. 
+### Loops
+First we will discuss for loops. For loops is a process that is repeated until the end of an object is reached. Let's look at the following example
 ```python
+for i in range(5):
+    print(i)
+ 
+
 ```
+This for loop will print the current loop number until the end is reached. Remember that Python begins indexing with zero. As a result, our loop will count from 0 to 4, rather than 1 to 5. Also note that Python loops are "smart" in that they will add an iteration once the end of the loop statement is reached. This means we don't have to create a counter
+
+Now let's discuss the syntax of a loop a little more. First you will see we begin our for loop with a 'for' statment. In this statement, we specify the variable that will serve as the current count. In this example, we are using 'i' as the variable name. Next we use the Python key-word 'in' do designate that where 'i' comes from. Next is the built-in function 'range()'. Range outputs the range between number specified. When only one number is included, it counts from zero to that number, not inclusive. Finally, we end our loop with a colon.
+The next line, which is nested within the loop, is indicated as part of the loop by an indent. Note that the indent **must** be 4 spaces. The default on most computer text editors is 8 spaces. This is why I recommend using an IDE built for Python, since most default to this spacing. Once we have all the statements written inside our loop, we close the loop by putting two blank lines are the loop
+For loops are not the only option, there are others. Let's just look at another quick example. Below is a 'while' loop. It repeats the process until the while criteria is met
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+To make sure we do not get stuck in an infinite loop, this time we added the statement 'i += 1'. This statement adds 1 to the current count after each loop through the while statement. The statement 'i += 1' is equivalent to 'i = i + 1', but the first is just a shorthand option available in Python. It is also supported for other basic mathematical operations
+
+### If-then
+If-thensare logical statements where an action is taken only if certain criteria are met. If-then statements have a similar syntax structure to loops. Let's look at the following example
+```python
+i = 4
+if i == 5:
+    print('The current number is five')
+    print('Hello')
+elif i == 4:
+    print('The current number is four')
+else:
+    pass #ignores this line 
+```
+###### Note that to assess whether two items are equal, we use a **double** equal sign '==' 
+In this example there are the 3 key-words for if-then statements. First, there is the intitial 'if' which is evaluated. This statement ends with a colon. All lines indented below this line will be executed when the if statement is True. Following the 'if' statement is an else if statement indicated by the Python key-word 'elif'. 
+
+### Functions
+
+### Altogether
