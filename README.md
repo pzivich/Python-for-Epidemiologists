@@ -20,9 +20,10 @@ This can be chosen later. I prefer to use Rodeo from Y-Hat, but any IDE will wor
 
 ### Python Packages
 Packages are what stores Python functions that we will use. These packages are contributed by various members of the community and there is a wide array. 
+#### Required packages for tutorial
+NumPy, Pandas, NetworkX, zEpid, matplotlib, statsmodels
 #### Recommended packages
-Packages that are required to complete this tutorial: NumPy, Pandas, NetworkX, zEpid, matplotlib, statsmodels
-Other recommended packages: seaborn, biopython
+seaborn, biopython
 
 ## Python Basics
 python_basics.md
