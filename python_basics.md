@@ -217,37 +217,101 @@ The last part of the if-then grouping is an 'else' statement. This statement onl
 ### Functions
 Users can define functions for themselves. This makes a calculation easier to repeat for a number of variables. Let's take a sample user-defined function to calculate the Risk Ratio
 ```python
-def risk_ratio(a,b,c,d):
+def risk_ratio(a,b,c,d,risk=True):
     '''This function calculates the Risk Ratio. The inputs are 
     the numbers from a 2x2 table'''
     rr = (a/(a+b)) / (c/(c+d))
-    print('The risk ratio is:')
-    print(rr)
+    if risk == True:
+        print('The risk ratio is:')
+        print(rr)
+        return rr
+    else:
+        print('not a RR')
 
 
 ```
-The first line 
-
+The first line begins with 'def' which stands for define. next we provide a function name. We call ours 'risk_ratio'. Next are the paratheses containing the input variables. Our function has four required variables and one optional one. The inputs designated a, b, c, and d are required. Without them, our function will produce an error. The variable 'rr' does not need to be specified everytime we use the function. Rather, we set it to be True as the default. Users can change the default value when they change the function. Note that optional arguments can only follow after all required arguments have been listed. Also note that everything below is indented.
+Next part of the function is documentation. This is to help us remember what this function is used for. When writing this section, be as detailed as possible. How would you improve the documentation? We can view the functions documentation by running  help(risk_ratio). This is helpful when trying to see what argument options are available for a function.
+Lastly, we have a series of statements that our function executes when called. Note that all variables in our inputs are used later. We also use the special function return, which returns the value calculated. So if we set x = risk_ratio(...) then x would be equal to the calculated rr.
+What do you think would happen if we called the following functions?
+```python
+risk_ratio(15,24,52,64)
+risk_ratio(15,24,52,64,risk=False)
+```
 
 ### Altogether
+Now that we know loops, if-then, and functions, let's combine them all together. Here we are going to write a function that counts to a number specified by the user.
+```python
+def count_to_x(x):
+    '''This functions counts to x. It only accepts non-negative, integers.
+    
+    Inputs:
+    x - number to count to'''
+    if ((x < 0) | (type(x) != int)): #Note that | means 'or' and & means 'and'
+        print('x must be a positive integer')
+    else:
+        for i in range(x):
+            print(i)
+
+
+
+
+count_to_x(5)
+count_to_x(-5)
+```
+Now, a user could input any number (like 1000000000000000000000), which would start generating way too much output to be practical. How could you rewrite the above function to prevent large numbers (greater than 500) from being counted to?
 
 ## Python Packages Introduction
-Now, it would be a lot of effort to write functions to do everything. For example, with the prior function, it doesn't calculate the variance, so we don't have confidence intervals. Now, we could write calculations into the function but this will quickly become tedious and exceedingly complicated for some functions. Luckily, there is a plethora of packages available that do a wide variety of calculations. We will now use a package I have been writing to help us with some calculations
+Now, it would be a lot of effort to write functions to do everything. For example, with the prior 'risk_ratio' function, it doesn't calculate the variance, so we don't have confidence intervals. Now, we could write calculations into the function but this will quickly become tedious and exceedingly complicated for some functions. Plus it is a huge waste of time for everyone to completely reinvent the wheel. Luckily, there is a plethora of packages available that do a wide variety of calculations. We will now use a package I developed to help us with calculations
 ###### Note: Packages need to be installed with 'pip' or some package manager before they can be used. Please see the introduction page for how to install packages with pip. 
 Once we have the package installed with pip, we can open with 
 ```python
 import zepid as ze 
 ```
 Note that we use the 'as' statement. This allows us to shorten to name we use to call the package and the functions contained within it. Instead of writing 'zepid' each time we want to use a package function, we can now only write 'ze'
-Now we can use the summary calculation function available in zepid to calculate our risk ratio and corresponding confidence intervals. First we call the package up by the abbreviated name, followed by a period. Following the period, we use the following items to specify the specific function we want to use 'RelRisk', which is contained in the 'summary' class
+Now we can use the summary calculation function available in zepid to calculate our risk ratio and corresponding confidence intervals. First we call the package up by the abbreviated name, followed by a period. Following the period, we use the following items to specify the specific function we want to use 'RelRisk', which is contained in the 'calc' filepath. Since this is our first time using this function, let's look at the documentation
 ```python
-ze.summary.RelRisk()
+help(ze.calc.rr)
+```
+This outputs:
+```
+rr(a, b, c, d, alpha=0.05, decimal=3, print_res=True, return_res=False)
+    Calculates the Risk Ratio from count data.
+    
+    WARNING: a,b,c,d must be positive numbers.
+    
+    a:
+        -count of exposed individuals with outcome
+    b:
+        -count of unexposed individuals with outcome
+    c:
+        -count of exposed individuals without outcome
+    d:
+        -count of unexposed individuals without outcome
+    alpha:
+        -Alpha value to calculate confidence intervals. Only compatible with two-sided intervals. Default is 95% onfidence interval
+    decimal:
+        -amount of decimal points to display. Default is 3
+    print_res:
+        -Whether to print the results. Default is True, which prints the results
+    return_res:
+        -Whether to return the RR as a object. Default is False
+```
+Which gives us the general details. Here we can what the four required arguments correspond to. We also see there are several optional arguments. There is the alpha level, number of decimal places to display, whether to print the results, and whether to return the results. We will keep the default options on.
+```python
+ze.calc.rr(15,24,52,64)
 ```
 Which should output
 ```
-
+----------------------------------------------------------------------
+Risk exposed: 0.385
+Risk unexposed: 0.448
+----------------------------------------------------------------------
+Relative Risk: 0.858
+95.0% two-sided CI: ( 0.55 ,  1.339 )
+----------------------------------------------------------------------
 ```
 There is a large variety of freely available packages. In the next sections, we will discuss some of the most common packages used for data management and data analysis. Additionally, most packages have extensive online documentation detailing all the functions available
 
 # Summary
-So in this part of the tutorial we have went over some of the basic functionality of Python. This section is just meant to be an introduction to the very basics of Python. There is a lot more to learn, but this serves as a good introduction to the elements important for data analysis. In the next sections, we will cover more of data analysis specifics
+So in this part of the tutorial we have went over some of the basic functionality of Python. This section is just meant to be an introduction to the very basics of Python. There is a lot more to learn, but this serves as a good introduction to the elements important for data analysis. In the next sections, we will cover more of data analysis specifics. For further learning and reading, I recommend https://learnxinyminutes.com/docs/python3/. However, everything contained in this section should be sufficient to proceed through the rest of the tutorial. I hope you enjoyed your introduction into the world of Python 3.x!
