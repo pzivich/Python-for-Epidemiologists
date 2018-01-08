@@ -24,7 +24,7 @@ Packages are what stores Python functions that we will use. These packages are c
 Packages that are required to complete this tutorial are: NumPy, Pandas, ...
 
 ## Python Basics
-basics.md
+python_basics.md
 ## Data manipulation basics
 data_basics.md
 ## Epidemiologic analysis
