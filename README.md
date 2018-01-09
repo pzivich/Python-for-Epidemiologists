@@ -1,7 +1,7 @@
 # Python-for-Epidemiologists
-**READ THIS ENTIRE SECTION BEFORE DOWNLOADING**<br />
+**READ THIS ENTIRE FILE BEFORE DOWNLOADING**<br />
 This is a guided tutorial for epidemiologists who are interested in using Python 3.x as a software for data cleaning/analysis. This tutorial is meant to provide the basics of coding in Python.<br />
-First, we will go over how to install and set up Python for the tutorial<br />
+First, we will go over how to install and set up Python for the tutorial<br /><br />
 In the tutorial, we will discuss: <br />
     1) Basics of Python <br />
     2) Data manipulation basics<br />
