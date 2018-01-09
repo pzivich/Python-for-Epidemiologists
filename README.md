@@ -1,33 +1,33 @@
 # Python-for-Epidemiologists
-/*READ THIS ENTIRE SECTION BEFORE DOWNLOADING*/
-This is a guided tutorial for epidemiologists who are interested in using Python 3.x as a software for data cleaning/analysis. This tutorial is meant to provide the basics of coding in Python.
-First, we will go over how to install and set up Python for the tutorial
-In the tutorial, we will discuss: 
-    1) Basics of Python 
-    2) Data manipulation basics
-    3) Epidemiology analysis tools
-    4) Basic graphic creation
+**READ THIS ENTIRE SECTION BEFORE DOWNLOADING**<br />
+This is a guided tutorial for epidemiologists who are interested in using Python 3.x as a software for data cleaning/analysis. This tutorial is meant to provide the basics of coding in Python.<br />
+First, we will go over how to install and set up Python for the tutorial<br />
+In the tutorial, we will discuss: <br />
+    1) Basics of Python <br />
+    2) Data manipulation basics<br />
+    3) Epidemiology analysis tools<br />
+    4) Basic graphic creation<br />
 
 # Installing Python
-To install, Python 3.x, we can download it directly from: https://www.python.org/downloads/
-The installer provides an option to add Python3 to PATH, it is **highly recommended** you do this, since it allows you to avoid having to do the following part. However, installing Python from Rodeo for Windows users might necessitate the following.
-Once downloaded, an environmental variable needs to be created for Python. We do this by (Windows 8/10):
-    1. Open the Control Panel
-    2. Select System
-    3. Select Advanced system settings
-    4. Select Environmental Variable
-    5. Select Path in the User Variables for ______ section
-    6. Add the file path of the Python install file (note that your install will likely differ from my example below, but last two path items should be very similar)
-        Ex) C:\file\path\to\Python\Python35-32\
-    7. Select OK
-    8. Select OK
-    9. Select Apply
+To install, Python 3.x, we can download it directly from: https://www.python.org/downloads/ <br /> <br />
+The installer provides an option to add Python3 to PATH, it is **highly recommended** you do this, since it allows you to avoid having to do the following part. However, installing Python from Rodeo for Windows users might necessitate the following.<br />
+Once downloaded, an environmental variable needs to be created for Python. We do this by (Windows 8/10):<br />
+    1. Open the Control Panel<br />
+    2. Select System<br />
+    3. Select Advanced system settings<br />
+    4. Select Environmental Variable<br />
+    5. Select Path in the User Variables for ______ section<br />
+    6. Add the file path of the Python install file (note that your install will likely differ from my example below, but last two path items should be very similar)<br />
+        Ex) C:\file\path\to\Python\Python35-32\<br />
+    7. Select OK<br />
+    8. Select OK<br />
+    9. Select Apply<br />
 
 ## IDE (Integrated Development Environment)
 This can be chosen later. I prefer to use Rodeo from Y-Hat, but any IDE will work. Basically what works/looks the best for you is what you should use. Some general options: Rodeo, Spyder, PyCharm, Jupyter Notebook (more in depth discussion here: https://www.datacamp.com/community/tutorials/data-science-python-ide)
-
-You can download Rodeo from: https://www.yhat.com/products/rodeo
-Also note that their blog (y-hat) has some good tutorials
+<br /> <br />
+You can download Rodeo from: https://www.yhat.com/products/rodeo <br />
+Also note that their blog (y-hat) has some good tutorials <br />
 Note that if using the Rodeo IDE for Windows, it downloads with copy of Python 3.x. As a result, Windows users only need to download Rodeo and then set their environmental variable. However, Mac users downloading Rodeo will need to download a copy of Python 3.x from the provided URL regardless.
 
 ## Installing Python Packages
