@@ -33,19 +33,19 @@ Note that if using the Rodeo IDE for Windows, it downloads with copy of Python 3
 ## Installing Python Packages
 Packages are what stores Python functions that we will use. These packages are contributed by various members of the community and there is a wide array. To be able to download packages, we need to make sure we have an environmental variable created for python. Below we will separate this into two section; Windows and Mac. We will discuss how to install packages for both
 ### Windows
-Open Command Prompt. When opened, type 'python' and this should open Python in the same window. From here, you can quit by typing 'quit()' or closing the window. If this does NOT work, make sure your environmental variable was created properly
-Python 3.x conveniently comes with a package manager. Basically it stores all the packages and we can use it to download new ones or update already downloaded ones.
+Open Command Prompt. When opened, type 'python' and this should open Python in the same window. From here, you can quit by typing 'quit()' or closing the window. If this does NOT work, make sure your environmental variable was created properly <br />
+Python 3.x conveniently comes with a package manager. Basically it stores all the packages and we can use it to download new ones or update already downloaded ones. <br />
 To download a new package: Open Command Prompt and use the following code (we will be installing pandas)
 ```
 python -m pip install pandas
 ```
-Which will download our package and install it. If an error is output, I recommend googling it first for potential solutions. A common issue is that there is not a C compiler. One can be downloaded from Windows. An alternative is to download a .whl file of the package from: https://www.lfd.uci.edu/~gohlke/pythonlibs/
-/*Make sure that the bit (32 or 64) of the WHL files matches the version of Python 3.x used*/
-The .whl file can used to install the package from Command Prompt (after navigating to the folder containing the .whl file) through the following code
+Which will download our package and install it. If an error is output, I recommend googling it first for potential solutions. A common issue is that there is not a C compiler. One can be downloaded from Windows. An alternative is to download a .whl file of the package from: https://www.lfd.uci.edu/~gohlke/pythonlibs/ <br />
+*Make sure that the bit (32 or 64) of the WHL files matches the version of Python 3.x used* <br />
+The .whl file can used to install the package from Command Prompt (after navigating to the folder containing the .whl file) through the following code <br />
 ```
 python -m pip install whlfilename.whl
 ```
-/*Reminder, you can navigate to folders in Command prompt by*/
+*Reminder, you can navigate to folders in Command prompt by*
 ```
 cd folder_name
 ```
@@ -58,7 +58,7 @@ Those are the basics of installing packages. Sometimes packages on Windows can b
 Verifying process...
 
 ### Required packages for tutorial
-To complete the tutorial, user must have the following packages installed: numpy, pandas, networkx, zepid, matplotlib, statsmodels, sas7bdat
+To complete the tutorial, user must have the following packages installed: numpy, pandas, networkx, zepid, matplotlib, statsmodels, sas7bdat<br />
 It is recommended to try install each using the above instructions
 
 #### Recommended packages
@@ -66,10 +66,10 @@ Some other useful packages: seaborn (improved graphical outputs), biopython (bun
 
 # Tutorial Parts
 ## 1. Python Basics
-python_basics.md
+python_basics.md<br />
 python_basics.txt
 ## 2. Data manipulation basics
-data_basics.md
+data_basics.md<br />
 data_basics.txt
 ## 3. Epidemiologic analysis
 under development
