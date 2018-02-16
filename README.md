@@ -16,9 +16,9 @@ Once downloaded, an environmental variable needs to be created for Python. We do
     2. Select System<br />
     3. Select Advanced system settings<br />
     4. Select Environmental Variable<br />
-    5. Select Path in the User Variables for ______ section<br />
+    5. Select Path in the User Variables for <____> section <br />
     6. Add the file path of the Python install file (note that your install will likely differ from my example below, but last two path items should be very similar)<br />
-        Ex) C:\file\path\to\Python\Python35-32\<br />
+        Ex) C:\file\path\to\Python\Python35-32\ <br />
     7. Select OK<br />
     8. Select OK<br />
     9. Select Apply<br />
