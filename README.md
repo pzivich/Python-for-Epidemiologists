@@ -5,7 +5,7 @@ First, we will go over how to install and set up Python for the tutorial<br /><b
 In the tutorial, we will discuss: <br />
     1) Basics of Python <br />
     2) Data manipulation basics<br />
-    3) Epidemiology analysis tools<br />
+    3) zepid Python package for epidemiology analysis tools<br />
     4) Basic graphic creation<br />
 
 # Installing Python
