@@ -275,10 +275,10 @@ help(ze.calc.rr)
 ```
 This outputs:
 ```
-rr(a, b, c, d, alpha=0.05, decimal=3, print_res=True, return_res=False)
+Help on function rr in module zepid.calc.calc:
+
+rr(a, b, c, d, alpha=0.05, decimal=3, print_result=True, return_result=False)
     Calculates the Risk Ratio from count data.
-    
-    WARNING: a,b,c,d must be positive numbers.
     
     a:
         -count of exposed individuals with outcome
@@ -289,13 +289,16 @@ rr(a, b, c, d, alpha=0.05, decimal=3, print_res=True, return_res=False)
     d:
         -count of unexposed individuals without outcome
     alpha:
-        -Alpha value to calculate confidence intervals. Only compatible with two-sided intervals. Default is 95% onfidence interval
+        -Alpha value to calculate two-sided Wald confidence intervals. Default is 95% onfidence interval
     decimal:
         -amount of decimal points to display. Default is 3
-    print_res:
+    print_result:
         -Whether to print the results. Default is True, which prints the results
-    return_res:
+    return_result:
         -Whether to return the RR as a object. Default is False
+    
+    Example)
+    >>>zepid.calc.rr(25,32,145,192)
 ```
 Which gives us the general details. Here we can what the four required arguments correspond to. We also see there are several optional arguments. There is the alpha level, number of decimal places to display, whether to print the results, and whether to return the results. We will keep the default options on.
 ```python
@@ -303,12 +306,23 @@ ze.calc.rr(15,24,52,64)
 ```
 Which should output
 ```
++-----+-------+-------+
+|     |   D=1 |   D=0 |
++=====+=======+=======+
+| E=1 |    15 |    24 |
++-----+-------+-------+
+| E=0 |    52 |    64 |
++-----+-------+-------+
 ----------------------------------------------------------------------
-Risk exposed: 0.385
-Risk unexposed: 0.448
+Exposed
+Risk: 0.385,  95.0% CI: (0.232, 0.537)
+Unexposed
+Risk: 0.448,  95.0% CI: (0.358, 0.539)
 ----------------------------------------------------------------------
 Relative Risk: 0.858
 95.0% two-sided CI: ( 0.55 ,  1.339 )
+Confidence Limit Ratio:  2.437
+Standard Error:  0.227
 ----------------------------------------------------------------------
 ```
 There is a large variety of freely available packages. In the next sections, we will discuss some of the most common packages used for data management and data analysis. Additionally, most packages have extensive online documentation detailing all the functions available
