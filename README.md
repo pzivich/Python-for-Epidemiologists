@@ -1,77 +1,110 @@
 # Python-for-Epidemiologists
-**READ THIS ENTIRE FILE BEFORE DOWNLOADING**<br />
-This is a guided tutorial for epidemiologists who are interested in using Python 3.x as a software for data cleaning/analysis. This tutorial is meant to provide the basics of coding in Python.<br />
-First, we will go over how to install and set up Python for the tutorial<br /><br />
-In the tutorial, we will discuss: <br />
-    1) Basics of Python <br />
-    2) Data manipulation basics<br />
-    3) zepid Python package for epidemiology analysis tools<br />
-    4) Basic graphic creation<br />
+This repository is an introduction to epidemiology analyses in Python. Additionally, the tutorials for my library 
+*zEpid* are hosted here. For more information on *zEpid*, see [GitHub](https://github.com/pzivich/zEpid) or 
+[ReadTheDocs](https://zepid.readthedocs.io/en/latest/). 
 
-# Installing Python
-To install, Python 3.x, we can download it directly from: https://www.python.org/downloads/ <br /> <br />
-The installer provides an option to add Python3 to PATH, it is **highly recommended** you do this, since it allows you to avoid having to do the following part. However, installing Python from Rodeo for Windows users might necessitate the following.<br />
-Once downloaded, an environmental variable needs to be created for Python. We do this by (Windows 8/10):<br />
-    1. Open the Control Panel<br />
-    2. Select System<br />
-    3. Select Advanced system settings<br />
-    4. Select Environmental Variable<br />
-    5. Select Path in the User Variables for <____> section <br />
-    6. Add the file path of the Python install file (note that your install will likely differ from my example below, but last two path items should be very similar)<br />
-        Ex) C:\file\path\to\Python\Python35-32\ <br />
-    7. Select OK<br />
-    8. Select OK<br />
-    9. Select Apply<br />
+The directory of this guide is
+1) Python Basics
+2) Basics of pandas (data management library)
+3) Epidemiology analyses in Python
+   1) Basics
+   2) Missing data
+   3) Causal inference
+      1) Time-fixed treatments
+      2) Time-varying treatments
+   4) Sensitivity analyses 
+
+## Required packages for tutorial
+To complete the tutorial, user must have the following packages installed: `numpy`, `pandas`, `zepid`, `matplotlib`, 
+`statsmodels`, `lifelines`, and `sklearn`
 
 ## IDE (Integrated Development Environment)
-This can be chosen later. I prefer to use Rodeo from Y-Hat, but any IDE will work. Basically what works/looks the best for you is what you should use. Some general options: Rodeo, Spyder, PyCharm, Jupyter Notebook (more in depth discussion here: https://www.datacamp.com/community/tutorials/data-science-python-ide)
-<br /> <br />
-You can download Rodeo from: https://www.yhat.com/products/rodeo <br />
-Also note that their blog (y-hat) has some good tutorials <br />
-Note that if using the Rodeo IDE for Windows, it downloads with copy of Python 3.x. As a result, Windows users only need to download Rodeo and then set their environmental variable. However, Mac users downloading Rodeo will need to download a copy of Python 3.x from the provided URL regardless.
+No IDE is required to complete the tutorial. All files are available in `ipynb` also known as jupyter notebooks. Code 
+can be either downloaded or copied from the notebooks. 
+
+Here are some IDEs I have used in the past (and what I believe to be their advantages and disadvantages
+
+**Rodeo**
+
+This is the IDE I used for a long time. It is set up like RStudio
+
+Advantages: 
+
+Basically RStudio but for Python, decent interface, easy to run line-by-line, easy to visualize plots (although it 
+encourage bad habits)
+
+Disadvantages:
+
+Does not have all the features of RStudio (will delete changes if closed without saving), sucks up a lot of memory, 
+sometimes the auto-complete would stop working if I hit more than 300+ lines of code, the environment tab is not 
+great (don't expect it to open anything like RStudio)
+
+*Aside*: their website has great tutorials how to run some basic stuff in Python if you are new to analysis in Python
+https://rodeo.yhat.com/
+
+**jupyter notebooks**
+
+Designed to be like a lab notebook, or like R markdown. Supports a pseudo-line-by-line concept 
+Good for writing, since it allows for MarkDown. While I know a lot of people like jupyter, I only really use it for 
+examples of code, not my personal programming. I never liked how it had to open via a Web Browser. I would rather have 
+it be separate program. However, all guides were made using this IDE
+
+**PyCharm**
+
+This is the IDE I currently use
+
+Advantages:
+
+Easily set up virtual environments, interacts natively with Git, supports different file formats with plug-ins 
+(e.g. .md), enforces certain coding conventions, better debug code features, organization of files under the project 
+tab are convenient
+
+Disadvantages:
+
+Not great for running line-by-line code (it can do it, just not as elegantly), little more hardcore (I wouldn't really 
+consider it a beginner's IDE. It requires some knowledge of set-up of Python)
+
+**IDLE**
+
+Ships with the basic Python 3.x installation. It is very basic and does not support line-by-line. Wouldn't recommend 
+unless you are just starting with Python and don't want to commit to an IDE yet
+
+**Spyder**
+
+Ships with `conda`. Not bad but I didn't use it that much (I couldn't get the hang of it). Similarly it is an RStudio 
+copy. Can't say too much since I haven't used it extensively
+
+# Basic Introduction to Python
+If you have never used Python before, I have created some introductory materials to Python and the data management 
+library I use, `pandas`. These are basic guides, but they also point to other resources. Please **READ ALL OF THE BELOW 
+BEFORE PROCEEDING**.
+
+## Installing Python
+To install, Python 3.x, we can download it directly from: https://www.python.org/downloads/ <br /> <br />
+The installer provides an option to add Python3 to PATH, it is **highly recommended** you do this, since it allows you 
+to avoid having to do it manually
+
+Open Command Prompt / Terminal. When opened, type `python` and this should open Python in the same window. From here, 
+you can quit by typing 'quit()' or closing the window. If this does NOT work, make sure your environmental variable 
+was created properly
 
 ## Installing Python Packages
-Packages are what stores Python functions that we will use. These packages are contributed by various members of the community and there is a wide array. To be able to download packages, we need to make sure we have an environmental variable created for python. Below we will separate this into two section; Windows and Mac. We will discuss how to install packages for both
-### Windows
-Open Command Prompt. When opened, type 'python' and this should open Python in the same window. From here, you can quit by typing 'quit()' or closing the window. If this does NOT work, make sure your environmental variable was created properly <br />
-Python 3.x conveniently comes with a package manager. Basically it stores all the packages and we can use it to download new ones or update already downloaded ones. <br />
-To download a new package: Open Command Prompt and use the following code (we will be installing pandas)
+Packages are what stores Python functions that we will use. These packages are contributed by various members of the 
+community (including me)) and there is a wide array. To be able to download packages, we need to make sure we have an 
+environmental variable created for python. We will discuss how to install packages
+
+Python 3.x conveniently comes with a package manager. Basically it stores all the packages and we can use it to 
+download new ones or update already downloaded ones.
+
+To download a new package: Open Command Prompt/Terminal and use the following code (we will be installing pandas)
+
 ```
-python -m pip install pandas
+pip install pandas
 ```
-Which will download our package and install it. If an error is output, I recommend googling it first for potential solutions. A common issue is that there is not a C compiler. One can be downloaded from Windows. An alternative is to download a .whl file of the package from: https://www.lfd.uci.edu/~gohlke/pythonlibs/ <br />
-*Make sure that the bit (32 or 64) of the WHL files matches the version of Python 3.x used* <br />
-The .whl file can used to install the package from Command Prompt (after navigating to the folder containing the .whl file) through the following code <br />
-```
-python -m pip install whlfilename.whl
-```
-*Reminder, you can navigate to folders in Command prompt by*
-```
-cd folder_name
-```
+
 To update a Python package, type the following command into Command Prompt. For example, we will update our pandas package
 ```
-python -m pip install pandas --upgrade
+pip install pandas --upgrade
 ```
-Those are the basics of installing packages. Sometimes packages on Windows can be difficult to install. If having difficulties, .whl file is often an easy workaround. Afterwards, update the package using the above code.
-### Mac
-Verifying process...
 
-### Required packages for tutorial
-To complete the tutorial, user must have the following packages installed: numpy, pandas, networkx, zepid, matplotlib, statsmodels, sas7bdat<br />
-It is recommended to try install each using the above instructions
-
-#### Recommended packages
-Some other useful packages: seaborn (improved graphical outputs), biopython (bunch of useful functions, but can search PubMed)
-
-# Tutorial Parts
-## 1. Python Basics
-python_basics.md<br />
-python_basics.txt
-## 2. Data manipulation basics
-data_basics.md<br />
-data_basics.txt
-## 3. Epidemiologic analysis
-under development
-## 4. Basic graphic creation
-under development
+That concludes the basics. Please review parts 1 and 2 of the tutorials next
