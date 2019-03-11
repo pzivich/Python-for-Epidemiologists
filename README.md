@@ -1,5 +1,6 @@
 # Python-for-Epidemiologists
 [![Join the chat at https://gitter.im/zEpid/community](https://badges.gitter.im/zEpid/community.svg)](https://gitter.im/zEpid/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![DOI](https://www.zenodo.org/badge/113911867.svg)](https://www.zenodo.org/badge/latestdoi/113911867)
 
 This repository is an introduction to epidemiology analyses in Python. Additionally, the tutorials for my library 
 *zEpid* are hosted here. For more information on *zEpid*, see [GitHub](https://github.com/pzivich/zEpid) or 
